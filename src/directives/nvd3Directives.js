@@ -609,7 +609,7 @@
                     y: '&',
                     //forcex is not exposed in the nvd3 multibar.js file.  it is not here on purpose.
                     forcey: '@',
-                    delay: '@',
+                    duration: '@',
                     stacked: '@',
 
                     callback: '&',
@@ -711,7 +711,7 @@
                                         .noData(attrs.nodata === undefined ? 'No Data Available.' : scope.nodata)
                                         .rotateLabels(attrs.rotatelabels === undefined ? 0 : attrs.rotatelabels)
                                         .color(attrs.color === undefined ? nv.utils.defaultColor()  : scope.color())
-                                        .delay(attrs.delay === undefined ? 1200 : attrs.delay)
+                                        .duration(attrs.duration === undefined ? 1200 : attrs.duration)
                                         .stacked(attrs.stacked === undefined ? false : (attrs.stacked === 'true'));
 
                                     if(attrs.tooltipcontent){
