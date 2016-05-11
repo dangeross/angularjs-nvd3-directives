@@ -1,4 +1,4 @@
-/*! angularjs-nvd3-directives - v0.0.8 - 2016-05-09
+/*! angularjs-nvd3-directives - v0.0.8 - 2016-05-11
  * http://angularjs-nvd3-directives.github.io/angularjs-nvd3-directives
  * Copyright (c) 2016 Christian Maurer; Licensed Apache License, v2.0 */
 ( function () {
@@ -1809,6 +1809,7 @@
           legendrightalign: '@',
           legendupdatestate: '@',
           legendradiobuttonmode: '@',
+          legendposition: '@',
           objectequality: '@',
           transitionduration: '@'
         },
@@ -1842,7 +1843,7 @@
                     return d[ 0 ];
                   } : scope.x() ).y( attrs.y === undefined ? function ( d ) {
                     return d[ 1 ];
-                  } : scope.y() ).width( scope.width ).height( scope.height ).margin( scope.margin ).tooltips( attrs.tooltips === undefined ? false : attrs.tooltips === 'true' ).noData( attrs.nodata === undefined ? 'No Data Available.' : scope.nodata ).showLabels( attrs.showlabels === undefined ? false : attrs.showlabels === 'true' ).labelThreshold( attrs.labelthreshold === undefined ? 0.02 : attrs.labelthreshold ).labelType( attrs.labeltype === undefined ? 'key' : attrs.labeltype ).pieLabelsOutside( attrs.pielabelsoutside === undefined ? true : attrs.pielabelsoutside === 'true' ).valueFormat( attrs.valueformat === undefined ? d3.format( ',.2f' ) : attrs.valueformat ).showLegend( attrs.showlegend === undefined ? false : attrs.showlegend === 'true' ).color( attrs.color === undefined ? nv.utils.defaultColor() : scope.color() ).donutLabelsOutside( attrs.donutlabelsoutside === undefined ? false : attrs.donutlabelsoutside === 'true' ).donut( attrs.donut === undefined ? false : attrs.donut === 'true' ).donutRatio( attrs.donutratio === undefined ? 0.5 : attrs.donutratio );
+                  } : scope.y() ).width( scope.width ).height( scope.height ).margin( scope.margin ).tooltips( attrs.tooltips === undefined ? false : attrs.tooltips === 'true' ).noData( attrs.nodata === undefined ? 'No Data Available.' : scope.nodata ).showLabels( attrs.showlabels === undefined ? false : attrs.showlabels === 'true' ).labelThreshold( attrs.labelthreshold === undefined ? 0.02 : attrs.labelthreshold ).labelType( attrs.labeltype === undefined ? 'key' : attrs.labeltype ).legendPosition( attrs.legendposition === undefined ? 'top' : attrs.legendposition ).pieLabelsOutside( attrs.pielabelsoutside === undefined ? true : attrs.pielabelsoutside === 'true' ).valueFormat( attrs.valueformat === undefined ? d3.format( ',.2f' ) : attrs.valueformat ).showLegend( attrs.showlegend === undefined ? false : attrs.showlegend === 'true' ).color( attrs.color === undefined ? nv.utils.defaultColor() : scope.color() ).donutLabelsOutside( attrs.donutlabelsoutside === undefined ? false : attrs.donutlabelsoutside === 'true' ).donut( attrs.donut === undefined ? false : attrs.donut === 'true' ).donutRatio( attrs.donutratio === undefined ? 0.5 : attrs.donutratio );
                   if ( attrs.tooltipcontent ) {
                     chart.tooltipContent( scope.tooltipcontent() );
                   }
