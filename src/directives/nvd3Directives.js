@@ -48,19 +48,28 @@
             d3.select(d3Select)
                 .append('svg');
         }
-        d3.select(d3Select + ' svg')
-            .attr('viewBox', '0 0 ' + scope.width + ' ' + scope.height)
-            .datum(data)
-            .transition().duration((attrs.transitionduration === undefined ? 250 : (+attrs.transitionduration)))
-            .call(chart);
+        if (scope.width && scope.height) {
+            d3.select(d3Select + ' svg')
+                .attr('viewBox', '0 0 ' + scope.width + ' ' + scope.height)
+                .datum(data)
+                .transition().duration((attrs.transitionduration === undefined ? 250 : (+attrs.transitionduration)))
+                .call(chart);
+        } else {
+            d3.select(d3Select + ' svg')
+                .datum(data)
+                .transition().duration((attrs.transitionduration === undefined ? 250 : (+attrs.transitionduration)))
+                .call(chart);
+        }
     }
 
     function updateDimensions(scope, attrs, element, chart) {
         if (chart) {
-            chart.width(scope.width).height(scope.height);
-            var d3Select = getD3Selector(attrs, element);
-            d3.select(d3Select + ' svg')
-                .attr('viewBox', '0 0 ' + scope.width + ' ' + scope.height);
+            if (scope.width && scope.height) {
+                chart.width(scope.width).height(scope.height);
+                var d3Select = getD3Selector(attrs, element);
+                d3.select(d3Select + ' svg')
+                    .attr('viewBox', '0 0 ' + scope.width + ' ' + scope.height);
+            }
             nv.utils.windowResize(chart);
             scope.chart.update();
         }
